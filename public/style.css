@@ -1,0 +1,48 @@
+*{
+    padding: 0%;
+    box-sizing: border-box;
+    font-family:'Bangers', cursive;
+}
+
+
+.square {
+  height: 450px;
+  width: 300px;
+  background-color:coral ; 
+  margin:auto; 
+  margin-top: 50px;
+  border-radius:1%; 
+  
+}
+
+.title{
+    padding-top: 30px;
+    text-align: center;
+    
+}
+
+.form{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    margin: 20px;
+
+}
+
+.form label {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.form input button{
+    border-radius: 10%;
+}
+
+.submits{
+    display: flex;
+    flex-direction: column;
+    margin: 40px;
+}
+
+.submits *{
+    margin: 20px;
+}
