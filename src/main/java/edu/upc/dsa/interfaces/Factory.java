@@ -9,4 +9,5 @@ public interface Factory {
     public void save(Object obj);
     public void delete(Object obj);
     public void update(Object obj);
+
 }

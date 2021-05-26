@@ -1,6 +1,6 @@
 package edu.upc.dsa.DAOs;
 import edu.upc.dsa.interfaces.IUserDAO;
-import edu.upc.dsa.models.Usuario;
+import edu.upc.dsa.models.User;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -41,20 +41,20 @@ public class IUserDAOImpl implements IUserDAO {
     }
 
     @Override
-    public Usuario findUsuariobyId(String id) {
-        Usuario user = null;
+    public User findUsuariobyId(String id) {
+        User user = null;
         try {
             this.stm = conn.createStatement();
-            String query = "SELECT * FROM usuario WHERE id='" + id + "'";
+            String query = "SELECT * FROM user WHERE idUser='" + id + "'";
             ResultSet rs = stm.executeQuery(query);
             while (rs.next()) {
-                String name = rs.getString("_name");
+                String name = rs.getString("name");
                 String surname = rs.getString("surname");
-                String password = rs.getString("_password");
-                int edad = rs.getInt("edad");
+                String password = rs.getString("password");
+                int age = rs.getInt("age");
                 String playerId = rs.getString("player_id");
                 float money = rs.getFloat("money");
-                user = new Usuario(id, name, surname, password, playerId, edad , money);
+                user = new User(id, name, surname, password, playerId, age , money);
                 //TODO implementar DAO de otras estructuras para rellenar la lista de usuario
             }
 
@@ -78,21 +78,21 @@ public class IUserDAOImpl implements IUserDAO {
     }
 
     @Override
-    public List<Usuario> findAll() {
+    public List<User> findAll() {
         try{
             this.stm = this.conn.createStatement();
-            String query = "select * from usuario";
+            String query = "select * from user";
             this.rs = stm.executeQuery(query);
-            List<Usuario> users = new ArrayList<>();
+            List<User> users = new ArrayList<>();
             while (rs.next()) {
-                String id = rs.getString("id");
-                String name = rs.getString("_name");
+                String id = rs.getString("idUser");
+                String name = rs.getString("name");
                 String surname = rs.getString("surname");
-                String password = rs.getString("_password");
-                int edad = rs.getInt("edad");
+                String password = rs.getString("password");
+                int age = rs.getInt("age");
                 String playerId = rs.getString("player_id");
                 float money = rs.getFloat("money");
-                Usuario u = new Usuario(id, name, surname, password, playerId, edad , money);
+                User u = new User(id, name, surname, password, playerId, age , money);
                 users.add(u);
             }
             return users;
@@ -116,17 +116,17 @@ public class IUserDAOImpl implements IUserDAO {
     }
 
     @Override
-    public void addUsuario(Usuario usuario) {
+    public void addUsuario(User user) {
         try{
             this.stm = conn.createStatement();
-            String query = "INSERT INTO usuario VALUES ('"
-                    +usuario.getId()+"','"
-                    +usuario.getName()+"','"
-                    +usuario.getSurname()+"','"
-                    +usuario.getPassword()+"',"
-                    +usuario.getEdad()+",'"
-                    +usuario.getPlayerId()+"',"
-                    +usuario.getMoney()+")";
+            String query = "INSERT INTO user VALUES ('"
+                    + user.getId()+"','"
+                    + user.getName()+"','"
+                    + user.getSurname()+"','"
+                    + user.getPassword()+"',"
+                    + user.getEdad()+",'"
+                    + user.getPlayerId()+"',"
+                    + user.getMoney()+")";
             stm.executeUpdate(query);
         }catch(SQLException sql ){
             System.out.println(sql.getMessage());
@@ -146,12 +146,67 @@ public class IUserDAOImpl implements IUserDAO {
     }
 
     @Override
-    public void deleteUsuario(String id) {
+    public void deleteUsuario(String id, String pass) {
+        try {
+            this.stm = conn.createStatement();
+            String query = "SELECT password FROM user WHERE idUser='" + id + "'";
+            ResultSet rs = stm.executeQuery(query);
+            if (rs.equals(pass)) {
+                try{
+                    this.stm = conn.createStatement();
+                    String query1 = "DELETE FROM user WHERE idUser = '" + id + "'";
+                    stm.executeUpdate(query);
+                }catch(SQLException sql ){
+                    System.out.println(sql.getMessage());
+                }
+            }
 
+        } catch (SQLException sql) {
+            System.out.println(sql.getMessage());
+
+        } finally {
+            try {
+                if (this.stm != null) {
+                    this.stm.close();
+                }
+                if(this.rs != null){
+                    this.rs.close();
+                }
+
+            } catch (SQLException sql) {
+
+            }
+        }
     }
 
     @Override
-    public void updateUsuario(String id, Usuario usuario) {
+    public void updateUsuario(String id, User user) {
+        try{
+            this.stm = conn.createStatement();
+            String query = "UPDATE user SET idUser = '"
+                    + user.getId()+"', name = '"
+                    + user.getName()+"', surname = '"
+                    + user.getSurname()+"', password = '"
+                    + user.getPassword()+"', age = "
+                    + user.getEdad()+", player_id = '"
+                    + user.getPlayerId()+"' where id = '"+ id +"')";
+
+            stm.executeUpdate(query);
+        }catch(SQLException sql ){
+            System.out.println(sql.getMessage());
+        }
+        finally {
+            try{
+                if (this.rs != null) {
+                    this.rs.close();
+                }
+                if (this.stm!= null) {
+                    this.stm.close();
+                }
+            } catch (SQLException sql){
+
+            }
+        }
 
     }
 }

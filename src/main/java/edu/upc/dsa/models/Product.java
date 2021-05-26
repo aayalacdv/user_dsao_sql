@@ -1,13 +1,13 @@
 package edu.upc.dsa.models;
 
-public class Producto {
+public class Product {
     private String id;
     private float price;
 
 
-    public Producto(){};
+    public Product(){};
 
-    public Producto(String id,float price){
+    public Product(String id, float price){
         this.id = id;
         this.price = price;
 

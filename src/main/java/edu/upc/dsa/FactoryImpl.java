@@ -2,7 +2,7 @@ package edu.upc.dsa;
 
 import edu.upc.dsa.DAOs.IUserDAOImpl;
 import edu.upc.dsa.interfaces.Factory;
-import edu.upc.dsa.models.Usuario;
+import edu.upc.dsa.models.User;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -69,9 +69,9 @@ public class FactoryImpl implements Factory {
     public List<Object> findAll(String obj) {
         switch(obj){
             case "usuario":
-                List<Usuario>usuarios = this.userDAO.findAll();
+                List<User> users = this.userDAO.findAll();
                 List<Object> objects = new ArrayList<>();
-                objects.addAll(usuarios);
+                objects.addAll(users);
                 return objects;
             case "producto":
                 return null;
@@ -88,7 +88,7 @@ public class FactoryImpl implements Factory {
 
        switch (model) {
            case "class edu.upc.dsa.models.Usuario":
-               Usuario user = (Usuario)obj;
+               User user = (User)obj;
                userDAO.addUsuario(user);
                break;
            case "class edu.upc.dsa.models.Producto":

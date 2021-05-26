@@ -2,7 +2,7 @@ package edu.upc.dsa.models;
 
 import java.util.List;
 
-public class Usuario {
+public class User {
     private String id;
     private String name;
     private String surname;
@@ -11,11 +11,11 @@ public class Usuario {
     private int edad;
     private float money;
     private List<Game> gamesList;
-    private List<Producto> productoList;
+    private List<Product> productList;
 
-    public Usuario(){}
+    public User(){}
 
-    public Usuario(String id , String name, String surname, String password,String playerId, int  edad, float money){
+    public User(String id , String name, String surname, String password, String playerId, int  edad, float money){
         this.id = id;
         this.name = name;
         this.surname = surname;
@@ -89,12 +89,12 @@ public class Usuario {
         this.gamesList = gamesList;
     }
 
-    public List<Producto> getProductoList() {
-        return productoList;
+    public List<Product> getProductList() {
+        return productList;
     }
 
-    public void setProductoList(List<Producto> productoList) {
-        this.productoList = productoList;
+    public void setProductList(List<Product> productList) {
+        this.productList = productList;
     }
 
     @Override
