@@ -8,7 +8,7 @@ public class User {
     private String surname;
     private String playerId;
     private String password;
-    private int edad;
+    private int age;
     private float money;
     private List<Game> gamesList;
     private List<Product> productList;
@@ -21,7 +21,7 @@ public class User {
         this.surname = surname;
         this.password = password;
         this.playerId = playerId;
-        this.edad = edad;
+        this.age = edad;
         this.money = money;
     }
 
@@ -74,11 +74,11 @@ public class User {
     }
 
     public int getEdad() {
-        return edad;
+        return age;
     }
 
     public void setEdad(int edad) {
-        this.edad = edad;
+        this.age = edad;
     }
 
     public List<Game> getGamesList() {
@@ -105,7 +105,7 @@ public class User {
                 ", surname='" + surname + '\'' +
                 ", playerId='" + playerId + '\'' +
                 ", password='" + password + '\'' +
-                ", edad=" + edad +
+                ", age =" + age +
                 ", money=" + money +
                 '}';
     }

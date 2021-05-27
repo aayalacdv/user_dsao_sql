@@ -87,11 +87,11 @@ public class FactoryImpl implements Factory {
        String model = obj.getClass().toString();
 
        switch (model) {
-           case "class edu.upc.dsa.models.Usuario":
+           case "class edu.upc.dsa.models.User":
                User user = (User)obj;
                userDAO.addUsuario(user);
                break;
-           case "class edu.upc.dsa.models.Producto":
+           case "class edu.upc.dsa.models.Product":
                break;
            case "class edu.upc.dsa.models.Game":
                break;

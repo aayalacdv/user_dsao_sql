@@ -35,7 +35,7 @@ $(document).ready(function(){
             surname: '',
             playerId: '',
             password: $pass.val(),
-            edad: 0 ,
+            age: 0 ,
             money: 0,
             gamesList: [
 
@@ -76,7 +76,7 @@ $(document).ready(function(){
             surname: $surname.val(),
             playerId: '',
             password: $pass.val(),
-            edad: $edad.val() ,
+            age: $age.val() ,
             money: 200,
             gamesList: [
 
