@@ -70,12 +70,13 @@ $(document).ready(function(){
 
 
         const url = '/myapp/auth/signup/';
+        console.log($nameSignUp.val())
         var data = {
             id: $idUser.val(),
-            name: $name.val(),
+            name: $nameSignUp.val(),
             surname: $surname.val(),
             playerId: '',
-            password: $pass.val(),
+            password: $password.val(),
             age: $age.val() ,
             money: 200,
             gamesList: [
@@ -85,6 +86,7 @@ $(document).ready(function(){
 
             ]
           };
+            console.log('11111',data);
 
         $.ajax({
             type: 'POST',
