@@ -30,7 +30,7 @@ public class AuthService {
     @Consumes(MediaType.APPLICATION_JSON)
     @Path("/login")
     public Response authenticateUser(User user){
-       User u = (User)this.session.findById( user.getId(), "usuario");
+       User u = (User)this.session.findById( user.getId(), user);
        if(u != null){
            if(u.getPassword().equals(user.getPassword())){
                return Response.status(201).build();
@@ -38,6 +38,9 @@ public class AuthService {
        }
         return Response.status(404).build();
     }
+
+
+
     @POST
     @ApiOperation(value = "sign up user ", notes = "Sign up user given an id and a password ")
     @ApiResponses(value = {
@@ -47,29 +50,13 @@ public class AuthService {
     @Consumes(MediaType.APPLICATION_JSON)
     @Path("/signup")
     public Response signUpUser(User user){
-        User u = (User)this.session.findById( user.getId(), "usuario");
+        User u = (User)this.session.findById( user.getId(),user);
         if(u == null){
             session.save(user);
             return Response.status(201).build();
         }
         return Response.status(404).build();
     }
-
-    /*
-    @DELETE
-    @ApiOperation(value = "delete a User", notes = "Delete a user given an id and a password")
-    @ApiResponses(value = {
-            @ApiResponse(code = 201, message = "Operation Successful"),
-            @ApiResponse(code = 404, message = "user not found")
-    })
-    @Path("/delete")
-    public Response deleteUser(User user) {
-
-    }
-
-     */
-
-
 
 
 

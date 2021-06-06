@@ -1,6 +1,6 @@
 package edu.upc.dsa.services;
-import edu.upc.dsa.DAOs.IProductoDAOImpl;
-import edu.upc.dsa.interfaces.IProductoDAO;
+import edu.upc.dsa.DAOs.IProductDAOImpl;
+import edu.upc.dsa.interfaces.IProductDAO;
 import edu.upc.dsa.models.Buys;
 import edu.upc.dsa.models.Product;
 import io.swagger.annotations.Api;
@@ -18,9 +18,9 @@ import java.util.List;
 @Path("/shop")
 public class ShopService {
 
-    private IProductoDAO ipd;
+    private IProductDAO ipd;
     public ShopService() {
-        this.ipd = IProductoDAOImpl.getInstance();
+        this.ipd = IProductDAOImpl.getInstance();
     }
 
     @GET

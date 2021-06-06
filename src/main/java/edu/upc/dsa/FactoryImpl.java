@@ -4,6 +4,8 @@ import edu.upc.dsa.DAOs.IUserDAOImpl;
 import edu.upc.dsa.interfaces.Factory;
 import edu.upc.dsa.models.User;
 
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Method;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.util.ArrayList;
@@ -53,17 +55,27 @@ public class FactoryImpl implements Factory {
     }
 
     @Override
-    public Object findById(String id, String obj) {
-        switch (obj){
-            case "usuario":
-                return this.userDAO.findUsuariobyId(id);
-            case "producto":
-                return null;
-            case "game":
-                return null;
+    public Object findById(String id, Object obj) {
+        Object DAO = null;
+        try{
+
+            //objtenemos la clase del objeto
+            String daoName = getDAOname(obj.getClass().getSimpleName());
+            //hacemos un constructor para el DAO y le pasamos la conexión con la base de datos
+            Class cls = Class.forName(daoName);
+            Constructor constructor = cls.getConstructor( Connection.class);
+            DAO = constructor.newInstance(this.connection);
+            Method getById = cls.getMethod("findById", String.class);
+            return getById.invoke(DAO,id);
+
+        }catch (Exception e){
+            e.printStackTrace();
         }
-        return null;
+
+        return DAO;
+
     }
+
 
     @Override
     public List<Object> findAll(String obj) {
@@ -84,20 +96,22 @@ public class FactoryImpl implements Factory {
 
     @Override
     public void save(Object obj) {
-       String model = obj.getClass().toString();
+        Object DAO = null;
+       try{
 
-       switch (model) {
-           case "class edu.upc.dsa.models.User":
-               User user = (User)obj;
-               userDAO.addUsuario(user);
-               break;
-           case "class edu.upc.dsa.models.Product":
-               break;
-           case "class edu.upc.dsa.models.Game":
-               break;
-           default:
+            //objtenemos la clase del objeto
+            String daoName = getDAOname(obj.getClass().getSimpleName());
+            //hacemos un constructor para el DAO y le pasamos la conexión con la base de datos
+            Class cls = Class.forName(daoName);
+            System.out.println(cls);
+            Constructor constructor = cls.getConstructor( Connection.class);
+            DAO = constructor.newInstance(this.connection);
+            Method addMethod = cls.getMethod("add",obj.getClass());
+            addMethod.invoke(DAO,obj);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
 
-       }
 
     }
 
@@ -110,4 +124,11 @@ public class FactoryImpl implements Factory {
     public void update(Object obj) {
 
     }
+
+
+    public String getDAOname(String cls){
+        return "edu.upc.dsa.DAOs.I"+cls+"DAOImpl";
+    }
+
+
 }

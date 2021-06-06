@@ -41,7 +41,7 @@ public class IUserDAOImpl implements IUserDAO {
     }
 
     @Override
-    public User findUsuariobyId(String id) {
+    public User findById(String id) {
         User user = null;
         try {
             this.stm = conn.createStatement();
@@ -116,7 +116,7 @@ public class IUserDAOImpl implements IUserDAO {
     }
 
     @Override
-    public void addUsuario(User user) {
+    public void add(User user) {
         try{
             this.stm = conn.createStatement();
             String query = "INSERT INTO user VALUES ('"
@@ -146,7 +146,7 @@ public class IUserDAOImpl implements IUserDAO {
     }
 
     @Override
-    public void deleteUsuario(String id, String pass) {
+    public void delete(String id, String pass) {
         try {
             this.stm = conn.createStatement();
             String query = "SELECT password FROM user WHERE idUser='" + id + "'";
@@ -180,7 +180,7 @@ public class IUserDAOImpl implements IUserDAO {
     }
 
     @Override
-    public void updateUsuario(String id, User user) {
+    public void update(String id, User user) {
         try{
             this.stm = conn.createStatement();
             String query = "UPDATE user SET idUser = '"

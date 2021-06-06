@@ -1,6 +1,6 @@
 package edu.upc.dsa.DAOs;
 
-import edu.upc.dsa.interfaces.IProductoDAO;
+import edu.upc.dsa.interfaces.IProductDAO;
 import edu.upc.dsa.models.Product;
 
 import java.sql.Connection;
@@ -9,18 +9,14 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.List;
 
-public class IProductoDAOImpl implements IProductoDAO {
+public class IProductDAOImpl implements IProductDAO {
     private Connection conn;
     private Statement stm;
     private ResultSet rs;
-    private static IProductoDAO instance;
+    private static IProductDAOImpl instance;
 
 
-    public IProductoDAOImpl() {
-
-    }
-
-    public IProductoDAOImpl(Connection conn){this.conn = conn; }
+    public IProductDAOImpl(Connection conn){this.conn = conn; }
 
     public Connection getConn() {
         return conn;
@@ -85,10 +81,10 @@ public class IProductoDAOImpl implements IProductoDAO {
         return null;
     }
 
-    public static IProductoDAO getInstance() {
+    public static IProductDAO getInstance() {
         if (instance==null)
         {
-            instance = new IProductoDAOImpl();
+            instance = new IProductDAOImpl(instance.getConn());
         }
         return instance;
     }
