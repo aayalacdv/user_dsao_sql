@@ -2,8 +2,12 @@ package edu.upc.dsa;
 
 import edu.upc.dsa.DAOs.IUserDAOImpl;
 
+import javax.xml.bind.DatatypeConverter;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.util.Locale;
 
 public class Main2 {
     private static Connection connection;
@@ -31,8 +35,18 @@ public class Main2 {
         }
     }
 
+    public static boolean compareMd5( String pwd,String hash ) throws NoSuchAlgorithmException {
 
-    public  static void main(String[] args) throws ClassNotFoundException {
+        MessageDigest md = MessageDigest.getInstance("MD5");
+        md.update(pwd.getBytes());
+        byte[] digest = md.digest();
+        String myHash = DatatypeConverter
+                .printHexBinary(digest).toLowerCase(Locale.ROOT);
+        return myHash.equals(hash);
+
+    }
+
+    public  static void main(String[] args) throws ClassNotFoundException, NoSuchAlgorithmException {
 
 
 
@@ -42,15 +56,12 @@ public class Main2 {
         //Session tiene que ser una clase que obtenga los parámetros y creee la conexión a la base de datos y también por ejemplo determine que clase de objeto estamos  parseando
         //algo que podemos hacer para poder ayudarnos es simplemente crear la clase que nos permita crear un query genérico para insertar, borrar, y modificar, obtener todos los objetos,y enocntrar uno en concreto
         //entonces cuál es el valor de la factoría
-        connectDatabase();
-        IUserDAOImpl userDAO = new IUserDAOImpl( connection);
-        System.out.println(userDAO.getClass().getSimpleName());
-        Class cls = Class.forName("edu.upc.dsa.DAOs.IUserDAOImpl");
 
 
+        String password = "hola";
+        System.out.println("4d186321c1a7f0f354b297e8914ab240");
 
-
-
+        System.out.println(compareMd5("hola","4d186321c1a7f0f354b297e8914ab240" ));
 
 
 
@@ -62,6 +73,10 @@ public class Main2 {
 
 
     }
+
+
+
+
 
 
 

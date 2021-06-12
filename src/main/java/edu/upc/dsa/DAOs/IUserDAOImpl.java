@@ -2,12 +2,16 @@ package edu.upc.dsa.DAOs;
 import edu.upc.dsa.interfaces.IUserDAO;
 import edu.upc.dsa.models.User;
 
+import javax.xml.bind.DatatypeConverter;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 public class IUserDAOImpl implements IUserDAO {
     private Connection conn;
@@ -122,8 +126,8 @@ public class IUserDAOImpl implements IUserDAO {
             String query = "INSERT INTO user VALUES ('"
                     + user.getId()+"','"
                     + user.getName()+"','"
-                    + user.getSurname()+"','"
-                    + user.getPassword()+"',"
+                    + user.getSurname()+"', MD5('"
+                    + user.getPassword()+"'),"
                     + user.getEdad()+",'"
                     + user.getPlayerId()+"',"
                     + user.getMoney()+")";
@@ -186,8 +190,8 @@ public class IUserDAOImpl implements IUserDAO {
             String query = "UPDATE user SET idUser = '"
                     + user.getId()+"', name = '"
                     + user.getName()+"', surname = '"
-                    + user.getSurname()+"', password = '"
-                    + user.getPassword()+"', age = "
+                    + user.getSurname()+"', password = MD5('"
+                    + user.getPassword()+"'), age = "
                     + user.getEdad()+", player_id = '"
                     + user.getPlayerId()+"' where id = '"+ id +"')";
 
@@ -209,4 +213,16 @@ public class IUserDAOImpl implements IUserDAO {
         }
 
     }
+
+    public boolean compareMd5( String pwd,String hash ) throws NoSuchAlgorithmException {
+
+        MessageDigest md = MessageDigest.getInstance("MD5");
+        md.update(pwd.getBytes());
+        byte[] digest = md.digest();
+        String myHash = DatatypeConverter
+                .printHexBinary(digest).toLowerCase(Locale.ROOT);
+        return myHash.equals(hash);
+
+    }
+
 }

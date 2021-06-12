@@ -30,6 +30,8 @@ public class FactoryImpl implements Factory {
         return instance;
     }
 
+    public Connection getConnection(){ return this.connection; };
+
 
     @Override
     public void connectDatabase() {

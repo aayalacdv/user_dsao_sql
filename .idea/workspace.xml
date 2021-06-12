@@ -5,24 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2fc2ffbf-d401-4a9a-b76d-a7dad1bb5d54" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/edu/upc/dsa/Main2.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/upc/dsa/DAOs/IProductoDAOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/upc/dsa/DAOs/IProductDAOImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/edu/upc/dsa/DAOs/IUserDAOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/upc/dsa/DAOs/IUserDAOImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/edu/upc/dsa/FactoryImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/upc/dsa/FactoryImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/upc/dsa/interfaces/Factory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/upc/dsa/interfaces/Factory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/upc/dsa/interfaces/IProductoDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/upc/dsa/interfaces/IProductDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/upc/dsa/interfaces/IUserDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/upc/dsa/interfaces/IUserDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/upc/dsa/Main2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/upc/dsa/Main2.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/edu/upc/dsa/services/AuthService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/upc/dsa/services/AuthService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/upc/dsa/services/ShopService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/upc/dsa/services/ShopService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/edu/upc/dsa/DAOs/IProductoDAOImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/edu/upc/dsa/DAOs/IUserDAOImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/edu/upc/dsa/DAOs/IUserDAOImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/edu/upc/dsa/FactoryImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/edu/upc/dsa/FactoryImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/edu/upc/dsa/interfaces/Factory.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/edu/upc/dsa/interfaces/Factory.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/edu/upc/dsa/interfaces/IProductoDAO.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/edu/upc/dsa/interfaces/IUserDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/edu/upc/dsa/interfaces/IUserDAO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/edu/upc/dsa/services/AuthService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/edu/upc/dsa/services/AuthService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/edu/upc/dsa/services/ShopService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/edu/upc/dsa/services/ShopService.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
