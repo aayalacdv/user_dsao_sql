@@ -1,7 +1,9 @@
 package edu.upc.dsa;
 
+import edu.upc.dsa.DAOs.IProductDAOImpl;
 import edu.upc.dsa.DAOs.IUserDAOImpl;
 import edu.upc.dsa.interfaces.Factory;
+import edu.upc.dsa.models.Product;
 import edu.upc.dsa.models.User;
 
 import java.lang.reflect.Constructor;
@@ -16,11 +18,13 @@ public class FactoryImpl implements Factory {
     private static FactoryImpl instance;
     private Connection connection;
     private IUserDAOImpl userDAO;
+    private IProductDAOImpl productDAO;
 
     private FactoryImpl(){
         connectDatabase();
         //intit DAOS
         this.userDAO = new IUserDAOImpl(this.connection);
+        this.productDAO = new IProductDAOImpl(this.connection);
     }
 
     public static FactoryImpl getInstance(){
@@ -88,7 +92,10 @@ public class FactoryImpl implements Factory {
                 objects.addAll(users);
                 return objects;
             case "producto":
-                return null;
+                List<Product> productList = this.productDAO.findAll();
+                List<Object> products = new ArrayList<>();
+                products.addAll(productList);
+                return (List<Object>)(Object)productList;
             case "game":
                 return null;
 

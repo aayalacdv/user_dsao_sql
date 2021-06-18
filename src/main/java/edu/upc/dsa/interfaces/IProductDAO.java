@@ -1,11 +1,12 @@
 package edu.upc.dsa.interfaces;
 
 import edu.upc.dsa.models.Product;
+import edu.upc.dsa.models.ShopProduct;
 
 import java.util.List;
 
 public interface IProductDAO {
-    public Product getProductById(String id, String userId);
-    public List<Product> getProducts();
-    public List<Product> getProductsByUser(String userId);
+    public Boolean buyProduct(ShopProduct purchase);
+    public List<Product> findAll();
+    public List<ShopProduct> findProductsByUser(String userId);
 }

@@ -1,8 +1,10 @@
 package edu.upc.dsa.services;
 import edu.upc.dsa.DAOs.IProductDAOImpl;
+import edu.upc.dsa.FactoryImpl;
 import edu.upc.dsa.interfaces.IProductDAO;
-import edu.upc.dsa.models.Buys;
 import edu.upc.dsa.models.Product;
+import edu.upc.dsa.models.ShopProduct;
+import edu.upc.dsa.models.User;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
@@ -19,61 +21,63 @@ import java.util.List;
 public class ShopService {
 
     private IProductDAO ipd;
+    private FactoryImpl session;
     public ShopService() {
-        this.ipd = IProductDAOImpl.getInstance();
+        this.session = FactoryImpl.getInstance();
+        this.ipd = new IProductDAOImpl(this.session.getConnection());
     }
 
     @GET
     @ApiOperation(value = "get product list", notes = "List of products")
     @ApiResponses(value = {
             @ApiResponse(code = 201, message = "Successful", response = Product.class, responseContainer="List"),
+            @ApiResponse( code = 404, message = "there aren't any product"),
     })
     @Path("/productList")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response getUsersByPrize() {
+    public Response getProductList() {
 
-        List<Product> listProducts = this.ipd.getProducts();
+        List<Object> listProducts = this.session.findAll("producto");
+        List<Product> productList = (List<Product>)(Object)listProducts;
 
-        GenericEntity<List<Product>> entity = new GenericEntity<List<Product>>(listProducts) {};
+        GenericEntity<List<Product>> entity = new GenericEntity<List<Product>>(productList) {};
         return Response.status(201).entity(entity).build();
-
     }
 
     @GET
     @ApiOperation(value = "get products by user", notes = "get a list of products")
     @ApiResponses(value = {
             @ApiResponse(code = 201, message = "Successful", response = Product.class, responseContainer="List"),
-            @ApiResponse(code = 404, message = "User not found")
+            @ApiResponse(code = 404, message = "Product not found")
     })
     @Path("/productsUser/{name}")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response getObjectsByUser(@PathParam("name") String id) {
-        List<Product> listObject = ipd.getProductsByUser(id);
+    public Response getProductsByUser(@PathParam("name") String id) {
+        List<ShopProduct> listProducts = ipd.findProductsByUser(id);
 
-        if (listObject == null) return Response.status(404).build();
+        if (listProducts == null) return Response.status(404).build();
         else {
-            GenericEntity<List<Product>> entity = new GenericEntity<List<Product>>(listObject) {};
+            GenericEntity<List<ShopProduct>> entity = new GenericEntity<List<ShopProduct>>(listProducts) {};
             return Response.status(201).entity(entity).build();
         }
     }
-/*
-    @GET
+
+    @POST
     @ApiOperation(value = "buy a product", notes = " user buys a product ")
     @ApiResponses(value = {
-            @ApiResponse(code = 201, message = "Successful", response = ObjectGame.class, responseContainer="List"),
+            @ApiResponse(code = 201, message = "Successful"),
             @ApiResponse(code = 404, message = "User not found")
     })
-    @Path("/buyProduct/")
+    @Path("/buyProduct")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response buyProduct(Buys buys) {
-        List<ObjectGame> listObject = gm.getObjects(id);
+    public Response buyProduct(ShopProduct purchase) {
+        Boolean done = ipd.buyProduct(purchase);
 
-        if (listObject == null) return Response.status(404).build();
+        if (done == true){
+            return Response.status(201).build();
+        }
         else {
-            GenericEntity<List<ObjectGame>> entity = new GenericEntity<List<ObjectGame>>(listObject) {};
-            return Response.status(201).entity(entity).build();
+            return Response.status(404).build();
         }
     }
-*/
-
-    }
+}
