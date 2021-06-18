@@ -66,7 +66,7 @@ public class ShopService {
     @ApiOperation(value = "buy a product", notes = " user buys a product ")
     @ApiResponses(value = {
             @ApiResponse(code = 201, message = "Successful"),
-            @ApiResponse(code = 404, message = "User not found")
+            @ApiResponse(code = 404, message = "the purchase could not be made")
     })
     @Path("/buyProduct")
     @Produces(MediaType.APPLICATION_JSON)
