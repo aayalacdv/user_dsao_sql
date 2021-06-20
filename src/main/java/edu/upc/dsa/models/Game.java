@@ -1,5 +1,10 @@
 package edu.upc.dsa.models;
 
+import edu.upc.dsa.utils.RandomUtils;
+
+import java.sql.Date;
+import java.util.Random;
+
 public class Game {
     private String id;
     private String date;
@@ -11,9 +16,10 @@ public class Game {
 
     }
 
-    public Game(String id, String date, String idPlayer){
-        this.id = id;
-        this.date = date;
+    public Game( String idPlayer){
+        this.id = RandomUtils.getId();
+        Date d = new Date(System.currentTimeMillis());
+        this.date = d.toString();
         this.idPlayer = idPlayer;
     }
 

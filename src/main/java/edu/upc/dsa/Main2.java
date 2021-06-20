@@ -1,6 +1,8 @@
 package edu.upc.dsa;
 
+import edu.upc.dsa.DAOs.IGameDAOImpl;
 import edu.upc.dsa.DAOs.IUserDAOImpl;
+import edu.upc.dsa.models.Game;
 
 import javax.xml.bind.DatatypeConverter;
 import java.security.MessageDigest;
@@ -58,14 +60,10 @@ public class Main2 {
         //entonces cuál es el valor de la factoría
 
 
-        String password = "hola";
-        System.out.println("4d186321c1a7f0f354b297e8914ab240");
-
-        System.out.println(compareMd5("hola","4d186321c1a7f0f354b297e8914ab240" ));
 
 
-
-
+        connectDatabase();
+        IGameDAOImpl igd = new IGameDAOImpl(connection);
 
 
 

@@ -190,10 +190,11 @@ public class IUserDAOImpl implements IUserDAO {
             String query = "UPDATE user SET idUser = '"
                     + user.getId()+"', name = '"
                     + user.getName()+"', surname = '"
-                    + user.getSurname()+"', password = MD5('"
-                    + user.getPassword()+"'), age = "
+                    + user.getSurname()+"', password = '"
+                    + user.getPassword()+"', age = "
                     + user.getEdad()+", player_id = '"
-                    + user.getPlayerId()+"' where id = '"+ id +"')";
+                    + user.getPlayerId()+"', money = "
+                    + user.getMoney() + "where idUser = '"+ id +"'";
 
             stm.executeUpdate(query);
         }catch(SQLException sql ){

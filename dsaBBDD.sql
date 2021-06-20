@@ -15,7 +15,7 @@ CREATE TABLE user (
 CREATE TABLE product ( 
 	idProduct VARCHAR(40) PRIMARY KEY NOT NULL,
 	price FLOAT,
-	urlProduct VARCHAR(40)	
+	urlProduct VARCHAR(100)
 )ENGINE = InnoDB; 
 
 CREATE TABLE game (
@@ -23,7 +23,8 @@ CREATE TABLE game (
 	date DATE,
 	duration FLOAT,
 	levels_passed INTEGER, 
-	player_id VARCHAR(40)
+	player_id VARCHAR(40),
+	FOREIGN KEY (player_id) references user(idUser)
 )ENGINE = InnoDB; 
 
 CREATE TABLE userProducts (
@@ -46,7 +47,11 @@ CREATE TABLE unityGame (
 	prefab VARCHAR(40) NOT NULL
 )ENGINE = InnoDB;
 
-INSERT INTO user VALUES('lau','Laura', 'Nuez', 'asdf', 22, '' , 200);
+INSERT INTO user VALUES('lau','Laura', 'Nuez', 'asdf', 22, '' , 1000);
 INSERT INTO product VALUES('vida', 400, 'http://10.0.2.2:8080/pociones/vida.png' );
 INSERT INTO product VALUES('resistencia', 400, 'http://10.0.2.2:8080/pociones/resistencia.png' );
 INSERT INTO product VALUES('velocidad', 400, 'http://10.0.2.2:8080/pociones/velocidad.png' );
+
+INSERT INTO userProducts  VALUES ("lau", 'vida', 3);
+INSERT INTO userProducts  VALUES ("lau", 'resistencia', 3);
+INSERT INTO userProducts  VALUES ("lau", 'velocidad', 3);
