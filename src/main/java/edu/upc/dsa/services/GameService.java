@@ -3,10 +3,7 @@ package edu.upc.dsa.services;
 import edu.upc.dsa.DAOs.IGameDAOImpl;
 import edu.upc.dsa.DAOs.IUserDAOImpl;
 import edu.upc.dsa.FactoryImpl;
-import edu.upc.dsa.models.Game;
-import edu.upc.dsa.models.InitGame;
-import edu.upc.dsa.models.PlayerUpdate;
-import edu.upc.dsa.models.User;
+import edu.upc.dsa.models.*;
 import io.swagger.annotations.Api;
 
 import javax.ws.rs.*;
@@ -70,10 +67,17 @@ public class GameService {
 
 
     @GET
-    @Path("/levelprefab/{id}")
-    public Response getLevelPrefab(@PathParam("id") String id ){
-        String levelPath = dao.getMap(Integer.parseInt(id));
-        return Response.status(201).entity(levelPath).build();
+    @Path("/levelprefabs")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response getLevelPrefab( ){
+        List<String> levelPath = dao.getMap();
+        List<Level> levels = new ArrayList<>();
+        for ( String s : levelPath){
+            Level l = new Level(s);
+            levels.add(l);
+        }
+        GenericEntity<List<Level>> entity = new GenericEntity<List<Level>>(levels){};
+        return Response.status(201).entity(entity).build();
     }
 
 

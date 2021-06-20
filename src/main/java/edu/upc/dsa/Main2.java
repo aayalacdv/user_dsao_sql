@@ -9,6 +9,7 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.util.List;
 import java.util.Locale;
 
 public class Main2 {
@@ -65,7 +66,8 @@ public class Main2 {
         connectDatabase();
         IGameDAOImpl igd = new IGameDAOImpl(connection);
 
-
+        List<String> games = igd.getMap();
+        System.out.println(games);
 
 
 

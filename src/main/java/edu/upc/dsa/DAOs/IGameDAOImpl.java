@@ -8,6 +8,8 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
 public class IGameDAOImpl implements IGameDAO {
 
@@ -102,14 +104,15 @@ public class IGameDAOImpl implements IGameDAO {
     }
 
     @Override
-    public String getMap(int level ) {
-       String levelPath = "";
+    public List<String> getMap( ) {
+       List<String> levelsList = new ArrayList<>();
         try {
             this.stm = conn.createStatement();
-            String query = "SELECT prefab FROM unitygame WHERE level =" + level + "";
+            String query = "SELECT * FROM unitygame";
             ResultSet rs = stm.executeQuery(query);
             while (rs.next()) {
-              levelPath = rs.getString("prefab");
+              String level = rs.getString("prefab");
+              levelsList.add(level);
             }
 
         } catch (SQLException sql) {
@@ -129,7 +132,7 @@ public class IGameDAOImpl implements IGameDAO {
             }
 
     }
-        return levelPath;
+        return levelsList;
 
 }
 
