@@ -2,6 +2,7 @@ package edu.upc.dsa.DAOs;
 
 import edu.upc.dsa.interfaces.IGameDAO;
 import edu.upc.dsa.models.Game;
+import edu.upc.dsa.models.User;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -101,7 +102,36 @@ public class IGameDAOImpl implements IGameDAO {
     }
 
     @Override
-    public void getMap() {
+    public String getMap(int level ) {
+       String levelPath = "";
+        try {
+            this.stm = conn.createStatement();
+            String query = "SELECT prefab FROM unitygame WHERE level =" + level + "";
+            ResultSet rs = stm.executeQuery(query);
+            while (rs.next()) {
+              levelPath = rs.getString("prefab");
+            }
+
+        } catch (SQLException sql) {
+            System.out.println(sql.getMessage());
+
+        } finally {
+            try {
+                if (this.stm != null) {
+                    this.stm.close();
+                }
+                if(this.rs != null){
+                    this.rs.close();
+                }
+
+            } catch (SQLException sql) {
+
+            }
 
     }
+        return levelPath;
+
+}
+
+
 }

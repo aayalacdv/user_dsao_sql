@@ -55,3 +55,8 @@ INSERT INTO product VALUES('velocidad', 400, 'http://10.0.2.2:8080/pociones/velo
 INSERT INTO userProducts  VALUES ("lau", 'vida', 3);
 INSERT INTO userProducts  VALUES ("lau", 'resistencia', 3);
 INSERT INTO userProducts  VALUES ("lau", 'velocidad', 3);
+
+INSERT INTO unitygame VALUES ( 1 , 'Prefabs/Level1');
+INSERT INTO unitygame VALUES ( 2 , 'Prefabs/Level2');
+INSERT INTO unitygame VALUES ( 3 , 'Prefabs/Level3');
+INSERT INTO unitygame VALUES ( 4 , 'Prefabs/Level4');

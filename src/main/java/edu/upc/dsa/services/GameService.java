@@ -9,9 +9,7 @@ import edu.upc.dsa.models.PlayerUpdate;
 import edu.upc.dsa.models.User;
 import io.swagger.annotations.Api;
 
-import javax.ws.rs.Consumes;
-import javax.ws.rs.POST;
-import javax.ws.rs.Path;
+import javax.ws.rs.*;
 import javax.ws.rs.core.GenericEntity;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
@@ -71,8 +69,12 @@ public class GameService {
 
 
 
-
-
+    @GET
+    @Path("/levelprefab/{id}")
+    public Response getLevelPrefab(@PathParam("id") String id ){
+        String levelPath = dao.getMap(Integer.parseInt(id));
+        return Response.status(201).entity(levelPath).build();
+    }
 
 
 
