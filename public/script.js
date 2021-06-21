@@ -1,31 +1,18 @@
-
 $(document).ready(function(){
 
-    var $name = $("#uname");
-    var $pass = $("#pass");
+    var $name = $("#username");
+    var $pass = $("#password");
     var $nameSignUp = $("#name");
-    var $surname = $("#surname");
+    var $lastname = $("#lastname");
     var $idUser = $("#idUser");
     var $age = $("#age");
     var $password = $("#password");
     var $password2 = $("#password2");
 
-    const loginForm = document.querySelector("#login");
-    const createAccountForm = document.querySelector("#createAccount");
+    const loginForm = document.querySelector("#login-form");
+    const createAccountForm = document.querySelector("#signup-form");
 
-    document.querySelector("#linkCreateAccount").addEventListener("click", e => {
-        e.preventDefault();
-        loginForm.classList.add("form__hidden");
-        createAccountForm.classList.remove("form__hidden");
-    });
-
-    document.querySelector("#linkLogin").addEventListener("click", e => {
-        e.preventDefault();
-            loginForm.classList.remove("form__hidden");
-            createAccountForm.classList.add("form__hidden");
-        });
-
-    $("#logInBtn").on("click",function(event){
+    $("#login-button").on("click",function(event){
         event.preventDefault();
 
         const url = '/myapp/auth/login/';
@@ -61,20 +48,17 @@ $(document).ready(function(){
                 console.log(response);
             }
         });
-
-
     });
 
-    $("#signUpBtn").on("click",function(event){
+    $("#signup-button").on("click",function(event){
         event.preventDefault();
 
-
         const url = '/myapp/auth/signup/';
-        console.log($nameSignUp.val())
+        console.log($nameSignUp.val());
         var data = {
             id: $idUser.val(),
             name: $nameSignUp.val(),
-            surname: $surname.val(),
+            lastname: $lastname.val(),
             playerId: '',
             password: $password.val(),
             age: $age.val() ,
@@ -105,4 +89,44 @@ $(document).ready(function(){
             }
         });
     });
-  });
+
+    /* Sumar o restar cantidad productos tienda */
+    $('.input-group').find('.quantity-plus').click(function(e) {
+        e.preventDefault();
+
+        var quantity = parseInt($(this).parent().find('.input-number').val());
+
+
+        $(this).parent().find('.input-number').val(quantity + 1);
+    });
+
+    $('.input-group').find('.quantity-minus').click(function(e) {
+        e.preventDefault();
+
+        var quantity = parseInt($(this).parent().find('.input-number').val());
+
+        if(quantity > 1) {
+            $(this).parent().find('.input-number').val(quantity - 1);
+        }
+    });
+
+    /* Volver al principio de la pagina */
+    var back2Top = document.getElementById("backtotop");
+
+    window.onscroll = function() {
+        scrollFunction();
+    }
+
+    function scrollFunction() {
+      if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        back2Top.style.display = "block";
+      } else {
+        back2Top.style.display = "none";
+      }
+    }
+
+    $('.backtotop').on("click", function() {
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
+    });
+ });
