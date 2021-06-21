@@ -9,6 +9,12 @@ $(document).ready(function(){
     var $password = $("#password");
     var $password2 = $("#password2");
 
+
+
+    ////////////////////////////////SignUP////////////////////////////////////
+    let username = document.querySelector('#username');
+
+
     const loginForm = document.querySelector("#login-form");
     const createAccountForm = document.querySelector("#signup-form");
 
