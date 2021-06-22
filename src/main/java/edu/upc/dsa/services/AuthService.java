@@ -9,6 +9,7 @@ import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
 
 import javax.ws.rs.*;
+import javax.ws.rs.core.GenericEntity;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.security.NoSuchAlgorithmException;
@@ -61,7 +62,23 @@ public class AuthService {
         return Response.status(404).build();
     }
 
+    @GET
+    @ApiOperation(value = "get info user", notes = "get the parameters of a user")
+    @ApiResponses(value = {
+            @ApiResponse(code = 201, message = "Successful", response = User.class),
+            @ApiResponse(code = 404, message = "User not found")
+    })
+    @Path("/userInfo/{name}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response getInfoUser(@PathParam("name") String id) {
+        User u = userDAO.getInfoUser(id);
 
+        if (u == null) return Response.status(404).build();
+        else {
+            GenericEntity<User> entity = new GenericEntity<User>(u) {};
+            return Response.status(201).entity(entity).build();
+        }
+    }
 
 
 

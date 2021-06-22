@@ -215,6 +215,42 @@ public class IUserDAOImpl implements IUserDAO {
 
     }
 
+    @Override
+    public User getInfoUser(String idUser) {
+        User u = null;
+        try {
+            this.stm = conn.createStatement();
+            String query = "SELECT * FROM user WHERE idUser='" + idUser + "'";
+            ResultSet rs = stm.executeQuery(query);
+            while (rs.next()) {
+                String id = rs.getString("idUser");
+                String name = rs.getString("name");
+                String surname = rs.getString("surname");
+                String password = rs.getString("password");
+                int age = rs.getInt("age");
+                String playerId = rs.getString("player_id");
+                float money = rs.getFloat("money");
+                u = new User(id, name, surname, password, playerId, age, money);
+            }
+        } catch (SQLException sql) {
+            System.out.println(sql.getMessage());
+
+        } finally {
+            try {
+                if (this.stm != null) {
+                    this.stm.close();
+                }
+                if(this.rs != null){
+                    this.rs.close();
+                }
+
+            } catch (SQLException sql) {
+
+            }
+        }
+        return u;
+    }
+
     public boolean compareMd5( String pwd,String hash ) throws NoSuchAlgorithmException {
 
         MessageDigest md = MessageDigest.getInstance("MD5");

@@ -11,6 +11,7 @@ public interface IUserDAO {
     public void add(User user);
     public void delete(String id, String pass);
     public void update(String id, User user);
+    public User getInfoUser(String idUser);
     //public List<Producto> findProductsByUser(String id);
 
 }
