@@ -49,8 +49,8 @@ CREATE TABLE unityGame (
 
 INSERT INTO user VALUES('lau','Laura', 'Nuez', 'asdf', 22, '' , 1000);
 INSERT INTO product VALUES('vida', 400, 'http://10.0.2.2:8080/pociones/vida.png' );
-INSERT INTO product VALUES('resistencia', 400, 'http://10.0.2.2:8080/pociones/resistencia.png' );
-INSERT INTO product VALUES('velocidad', 400, 'http://10.0.2.2:8080/pociones/velocidad.png' );
+INSERT INTO product VALUES('resistencia', 400, 'http://10.0.2.2:8080/pociones/res.png' );
+INSERT INTO product VALUES('velocidad', 400, 'http://10.0.2.2:8080/pociones/vel.png' );
 
 INSERT INTO userProducts  VALUES ("lau", 'vida', 3);
 INSERT INTO userProducts  VALUES ("lau", 'resistencia', 3);
