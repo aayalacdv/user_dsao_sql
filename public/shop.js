@@ -48,10 +48,28 @@ let speedBtn = document.querySelector('#speed_btn');
 let resistanceBtn = document.querySelector('#resistance_btn'); 
 let data; 
 const url = "http://localhost:8080/myapp/shop/buyProduct"
+let haslistener = false;
 
+function apiCall(event, data){
+    fetch(url,{
+        method: 'POST', 
+        body: data, 
+        headers: {
+            "Content-type": "application/json; charset=UTF-8"
+        }
+    }).then(response => {
+        if(response.status === 201){
+            alert("Compra efectuada"); 
+        }
+        else{
+            alert("no tienes dinero"); 
+        }
+    })
+    console.log("click" + data );
+}
 
-lifeBtn.addEventListener("click", (event) => {
-    event.preventDefault(); 
+lifeBtn.addEventListener('click', (event) => {
+    event.preventDefault();
     data = JSON.stringify({
         idProduct: 'vida',
         idUser: localStorage.getItem('username'), 
@@ -59,23 +77,14 @@ lifeBtn.addEventListener("click", (event) => {
 
     })
     setTimeout(function(){
-        let buyBtn = document.querySelector('#buy_btn'); 
-        buyBtn.addEventListener('click', (event) => {
-            fetch(url,{
-                method: 'POST', 
-                body: data,
-                headers: {
-                 "Content-type": "application/json; charset=UTF-8"
-                }
-                }).then( response => {
-                   if(response.status === 201 ){
-                    alert("Compra completada")
-                  }else { alert("no money bro ")}
-        })
-    },3000)
-    
+        let buyBtn = document.querySelector('#buy_btn');
+            buyBtn.addEventListener('click', apiCall(event,data));
+
+
+    },2000)
 })
-})
+
+
 
 speedBtn.addEventListener("click", (event) => {
     event.preventDefault(); 
@@ -83,26 +92,14 @@ speedBtn.addEventListener("click", (event) => {
         idProduct: 'velocidad',
         idUser: localStorage.getItem('username'), 
         amount: document.querySelector('#pociondevelocidad').value  
-
     })
     setTimeout(function(){
-        let buyBtn = document.querySelector('#buy_btn'); 
-        buyBtn.addEventListener('click', (event) => {
-            fetch(url,{
-                method: 'POST', 
-                body: data,
-                headers: {
-                 "Content-type": "application/json; charset=UTF-8"
-                }
-                }).then( response => {
-                   if(response.status === 201 ){
-                    alert("Compra completada")
-                  }else { alert("no money bro ")}
-        })
-    },3000);
-    
+        let buyBtn = document.querySelector('#buy_btn');
+            buyBtn.addEventListener('click', apiCall(event,data));
+    },2000)
+
 })
-})
+
 
 resistanceBtn.addEventListener("click", (event) => {
     event.preventDefault(); 
@@ -113,21 +110,9 @@ resistanceBtn.addEventListener("click", (event) => {
 
     })
     setTimeout(function(){
-        let buyBtn = document.querySelector('#buy_btn'); 
-        buyBtn.addEventListener('click', (event) => {
-            fetch(url,{
-                method: 'POST', 
-                body: data,
-                headers: {
-                 "Content-type": "application/json; charset=UTF-8"
-                }
-                }).then( response => {
-                   if(response.status === 201 ){
-                    alert("Compra completada")
-                  }else { alert("no money bro ")}
-        })
-    },3000);
+        let buyBtn = document.querySelector('#buy_btn');
+            buyBtn.addEventListener('click', apiCall(event,data));
+    },2000)
 
-    })
 })
 
