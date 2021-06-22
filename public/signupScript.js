@@ -16,7 +16,7 @@ signupbtn.addEventListener("click", (event) => {
         playerId: '',   
         password: password.value,
         age: age.value,
-        money: 0,
+        money: 2000,
         gamesList: [],
         productoList: []
     

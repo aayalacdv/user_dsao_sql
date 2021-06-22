@@ -5,38 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2fc2ffbf-d401-4a9a-b76d-a7dad1bb5d54" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/loginScript.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/loginScript.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/script.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/shop.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/shop.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/signup.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/signup.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/upc/dsa/services/AuthService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/upc/dsa/services/AuthService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/edu/upc/dsa/DAOs/IGameDAOImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/edu/upc/dsa/DAOs/IGameDAOImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/edu/upc/dsa/DAOs/IProductDAOImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/edu/upc/dsa/DAOs/IProductDAOImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/edu/upc/dsa/DAOs/IUserDAOImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/edu/upc/dsa/DAOs/IUserDAOImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/edu/upc/dsa/FactoryImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/edu/upc/dsa/FactoryImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/edu/upc/dsa/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/edu/upc/dsa/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/edu/upc/dsa/Main2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/edu/upc/dsa/Main2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/edu/upc/dsa/MyExceptionMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/edu/upc/dsa/MyExceptionMapper.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/edu/upc/dsa/interfaces/Factory.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/edu/upc/dsa/interfaces/Factory.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/edu/upc/dsa/interfaces/IGameDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/edu/upc/dsa/interfaces/IGameDAO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/edu/upc/dsa/interfaces/IProductDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/edu/upc/dsa/interfaces/IProductDAO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/edu/upc/dsa/interfaces/IUserDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/edu/upc/dsa/interfaces/IUserDAO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/edu/upc/dsa/models/Game.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/edu/upc/dsa/models/Game.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/edu/upc/dsa/models/InitGame.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/edu/upc/dsa/models/InitGame.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/edu/upc/dsa/models/Level.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/edu/upc/dsa/models/Level.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/edu/upc/dsa/models/PlayerUpdate.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/edu/upc/dsa/models/PlayerUpdate.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/edu/upc/dsa/models/Product.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/edu/upc/dsa/models/Product.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/edu/upc/dsa/models/ShopProduct.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/edu/upc/dsa/models/ShopProduct.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/edu/upc/dsa/models/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/edu/upc/dsa/models/User.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/edu/upc/dsa/services/AuthService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/edu/upc/dsa/services/AuthService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/edu/upc/dsa/services/GameService$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/edu/upc/dsa/services/GameService$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/edu/upc/dsa/services/GameService$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/edu/upc/dsa/services/GameService$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/edu/upc/dsa/services/GameService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/edu/upc/dsa/services/GameService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/edu/upc/dsa/services/ShopService$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/edu/upc/dsa/services/ShopService$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/edu/upc/dsa/services/ShopService$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/edu/upc/dsa/services/ShopService$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/edu/upc/dsa/services/ShopService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/edu/upc/dsa/services/ShopService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/edu/upc/dsa/utils/RandomUtils.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/edu/upc/dsa/utils/RandomUtils.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/signupScript.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/signupScript.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -196,22 +165,22 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state width="1877" height="327" key="GridCell.Tab.0.bottom" timestamp="1624330977060">
+    <state width="1877" height="327" key="GridCell.Tab.0.bottom" timestamp="1624331706083">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="327" key="GridCell.Tab.0.bottom/1920.0.1280.693/0.0.1920.1040@0.0.1920.1040" timestamp="1624330977060" />
-    <state width="1877" height="327" key="GridCell.Tab.0.center" timestamp="1624330977060">
+    <state width="1877" height="327" key="GridCell.Tab.0.bottom/1920.0.1280.693/0.0.1920.1040@0.0.1920.1040" timestamp="1624331706083" />
+    <state width="1877" height="327" key="GridCell.Tab.0.center" timestamp="1624331706083">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="327" key="GridCell.Tab.0.center/1920.0.1280.693/0.0.1920.1040@0.0.1920.1040" timestamp="1624330977060" />
-    <state width="1877" height="327" key="GridCell.Tab.0.left" timestamp="1624330977060">
+    <state width="1877" height="327" key="GridCell.Tab.0.center/1920.0.1280.693/0.0.1920.1040@0.0.1920.1040" timestamp="1624331706083" />
+    <state width="1877" height="327" key="GridCell.Tab.0.left" timestamp="1624331706083">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="327" key="GridCell.Tab.0.left/1920.0.1280.693/0.0.1920.1040@0.0.1920.1040" timestamp="1624330977060" />
-    <state width="1877" height="327" key="GridCell.Tab.0.right" timestamp="1624330977060">
+    <state width="1877" height="327" key="GridCell.Tab.0.left/1920.0.1280.693/0.0.1920.1040@0.0.1920.1040" timestamp="1624331706083" />
+    <state width="1877" height="327" key="GridCell.Tab.0.right" timestamp="1624331706083">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="327" key="GridCell.Tab.0.right/1920.0.1280.693/0.0.1920.1040@0.0.1920.1040" timestamp="1624330977060" />
+    <state width="1877" height="327" key="GridCell.Tab.0.right/1920.0.1280.693/0.0.1920.1040@0.0.1920.1040" timestamp="1624331706083" />
     <state width="1877" height="348" key="GridCell.Tab.1.bottom" timestamp="1624326037245">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

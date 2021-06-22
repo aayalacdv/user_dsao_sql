@@ -88,10 +88,20 @@ speedBtn.addEventListener("click", (event) => {
     setTimeout(function(){
         let buyBtn = document.querySelector('#buy_btn'); 
         buyBtn.addEventListener('click', (event) => {
-
+            fetch(url,{
+                method: 'POST', 
+                body: data,
+                headers: {
+                 "Content-type": "application/json; charset=UTF-8"
+                }
+                }).then( response => {
+                   if(response.status === 201 ){
+                    alert("Compra completada")
+                  }else { alert("no money bro ")}
         })
     },3000);
     
+})
 })
 
 resistanceBtn.addEventListener("click", (event) => {
@@ -105,7 +115,19 @@ resistanceBtn.addEventListener("click", (event) => {
     setTimeout(function(){
         let buyBtn = document.querySelector('#buy_btn'); 
         buyBtn.addEventListener('click', (event) => {
+            fetch(url,{
+                method: 'POST', 
+                body: data,
+                headers: {
+                 "Content-type": "application/json; charset=UTF-8"
+                }
+                }).then( response => {
+                   if(response.status === 201 ){
+                    alert("Compra completada")
+                  }else { alert("no money bro ")}
         })
     },3000);
 
+    })
 })
+
